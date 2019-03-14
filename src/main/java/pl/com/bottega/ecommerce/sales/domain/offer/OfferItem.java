@@ -34,7 +34,6 @@ public class OfferItem {
         this.productData = productData;
         this.quantity = quantity;
         this.discount = discount;
-        //this.discountCause = discountCause;
 
         BigDecimal discountValue = new BigDecimal(0);
         if (discount != null) {
@@ -87,37 +86,12 @@ public class OfferItem {
      * @return
      */
     public boolean sameAs(OfferItem other, double delta) {
-//        if (productPrice == null) {
-//            if (other.productPrice != null) {
-//                return false;
-//            }
-//        } else if (!productPrice.equals(other.productPrice)) {
-//            return false;
-//        }
-//        if (productName == null) {
-//            if (other.productName != null) {
-//                return false;
-//            }
-//        } else if (!productName.equals(other.productName)) {
-//            return false;
-//        }
-//
-//        if (productId == null) {
-//            if (other.productId != null) {
-//                return false;
-//            }
-//        } else if (!productId.equals(other.productId)) {
-//            return false;
-//        }
-//        if (productType != other.productType) {
-//            return false;
-//        }
 
-        if(productData == null){
-            if(other.productData != null){
+        if (productData == null) {
+            if (other.productData != null) {
                 return false;
             }
-        } else if (!productData.sameAs(other.productData)){
+        } else if (!productData.sameAs(other.productData)) {
             return false;
         }
 
