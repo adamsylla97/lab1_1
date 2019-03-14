@@ -53,10 +53,8 @@ public class Offer {
     }
 
     /**
-     *
      * @param seenOffer
-     * @param delta
-     *            acceptable difference in percent
+     * @param delta     acceptable difference in percent
      * @return
      */
     public boolean sameAs(Offer seenOffer, double delta) {
@@ -65,7 +63,7 @@ public class Offer {
         }
 
         for (OfferItem item : availableItems) {
-            OfferItem sameItem = seenOffer.findItem(item.getProductId());
+            OfferItem sameItem = seenOffer.findItem(item.getProductData().getId());
             if (sameItem == null) {
                 return false;
             }
@@ -79,7 +77,7 @@ public class Offer {
 
     private OfferItem findItem(String productId) {
         for (OfferItem item : availableItems) {
-            if (item.getProductId().equals(productId)) {
+            if (item.getProductData().getId().equals(productId)) {
                 return item;
             }
         }
