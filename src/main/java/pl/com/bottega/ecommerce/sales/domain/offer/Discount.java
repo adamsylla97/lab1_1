@@ -44,4 +44,9 @@ public class Discount {
         return Objects.equals(cause, other.getCause())
                && Objects.equals(ammount, other.getAmmount());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cause, ammount);
+    }
 }

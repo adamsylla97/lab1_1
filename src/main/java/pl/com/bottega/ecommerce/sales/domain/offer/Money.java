@@ -48,4 +48,9 @@ public class Money {
         return Objects.equals(currency, other.getCurrency())
                && Objects.equals(value, other.getValue());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, currency);
+    }
 }

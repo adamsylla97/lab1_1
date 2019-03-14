@@ -60,50 +60,9 @@ public class OfferItem {
         return quantity;
     }
 
-    //    public String getProductId() {
-//        return productId;
-//    }
-//
-//    public BigDecimal getProductPrice() {
-//        return productPrice;
-//    }
-//
-//    public String getProductName() {
-//        return productName;
-//    }
-//
-//    public Date getProductSnapshotDate() {
-//        return productSnapshotDate;
-//    }
-//
-//    public String getProductType() {
-//        return productType;
-//    }
-//
-//    public BigDecimal getTotalCost() {
-//        return totalCost;
-//    }
-//
-//    public String getTotalCostCurrency() {
-//        return currency;
-//    }
-//
-//    public BigDecimal getDiscount() {
-//        return discount;
-//    }
-//
-//    public String getDiscountCause() {
-//        return discountCause;
-//    }
-//
-//    public int getQuantity() {
-//        return quantity;
-//    }
-
     @Override
     public int hashCode() {
-        return Objects.hash(currency, discount, discountCause, productId, productName, productPrice, productSnapshotDate, productType,
-                quantity, totalCost);
+        return Objects.hash(productData, discount, quantity, totalCost);
     }
 
     @Override
@@ -118,10 +77,8 @@ public class OfferItem {
             return false;
         }
         OfferItem other = (OfferItem) obj;
-        return Objects.equals(productData, other.getProductData())
-               && Objects.equals(discount, other.discount)
-               && Objects.equals(totalCost, other.getTotalCost())
-               && quantity == other.quantity;
+        return Objects.equals(productData, other.getProductData()) && Objects.equals(discount, other.discount) && Objects.equals(totalCost,
+                other.getTotalCost()) && quantity == other.quantity;
     }
 
     /**
