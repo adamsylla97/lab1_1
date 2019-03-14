@@ -18,31 +18,30 @@ import java.util.Objects;
 
 public class OfferItem {
 
+    private ProductData productData;
+
+    private Discount discount;
+
+    private Money totalCost;
+
     private int quantity;
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType,
-            int quantity) {
-        this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
+    public OfferItem(ProductData productData, int quantity) {
+        this(productData, quantity, null);
     }
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType,
-            int quantity, BigDecimal discount, String discountCause) {
-        this.productId = productId;
-        this.productPrice = productPrice;
-        this.productName = productName;
-        this.productSnapshotDate = productSnapshotDate;
-        this.productType = productType;
-
+    public OfferItem(ProductData productData, int quantity, Discount discount) {
+        this.productData = productData;
         this.quantity = quantity;
         this.discount = discount;
-        this.discountCause = discountCause;
+        //this.discountCause = discountCause;
 
         BigDecimal discountValue = new BigDecimal(0);
         if (discount != null) {
-            discountValue = discountValue.add(discount);
+            discountValue = discountValue.add(discount.getAmmount().getValue());
         }
 
-        this.totalCost = productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
+        this.totalCost.setValue(productData.getPrice().getValue().multiply(new BigDecimal(quantity)).subtract(discountValue));
     }
 
     public String getProductId() {
