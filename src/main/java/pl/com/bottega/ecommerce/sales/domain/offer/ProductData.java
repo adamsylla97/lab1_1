@@ -78,6 +78,23 @@ public class ProductData {
                && Objects.equals(type, other.getType());
     }
 
+    public boolean sameAs(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        ProductData other = (ProductData) obj;
+        return Objects.equals(id, other.getId())
+               && Objects.equals(price, other.getPrice())
+               && Objects.equals(name, other.getName())
+               && Objects.equals(type, other.getType());
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id, price, name, snapshotDate, type);
