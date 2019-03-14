@@ -31,9 +31,9 @@ public class OfferItem {
 
     private int quantity;
 
-    private BigDecimal totalCost;
-
-    private String currency;
+//    private BigDecimal totalCost;
+//
+//    private String currency;
 
     // discount
     private String discountCause;
