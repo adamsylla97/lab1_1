@@ -53,9 +53,9 @@ public class Offer {
     }
 
     /**
-     * @param seenOffer
+     * @param seenOffer offer to compare
      * @param delta     acceptable difference in percent
-     * @return
+     * @return returs true if offers are the same and false if offers are different or one or more of them are null
      */
     public boolean sameAs(Offer seenOffer, double delta) {
         if (availableItems.size() != seenOffer.availableItems.size()) {
