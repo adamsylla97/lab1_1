@@ -1,6 +1,7 @@
 package pl.com.bottega.ecommerce.sales.domain.offer;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Money {
 
@@ -32,5 +33,19 @@ public class Money {
         this.currency = currency;
     }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Money other = (Money) obj;
+        return Objects.equals(currency, other.getCurrency())
+               && Objects.equals(value, other.getValue());
+    }
 }
